@@ -25,7 +25,17 @@ export interface BlogPost {
 
 export interface Skill {
   name: string;
-  category: "frontend" | "backend" | "ai-ml" | "hardware" | "tools";
+  category:
+    | "frontend"
+    | "backend"
+    | "ai-ml"
+    | "hardware"
+    | "tools"
+    | "programming"
+    | "frameworks"
+    | "generative-ai"
+    | "database"
+    | "core-cs";
   level: number; // 0-100
   icon?: string;
 }
