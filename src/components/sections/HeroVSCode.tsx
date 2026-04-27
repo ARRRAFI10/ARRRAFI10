@@ -19,15 +19,15 @@ import {
 } from "react-icons/si";
 
 export default function HeroVSCode() {
-  const [activeTab, setActiveTab] = useState("README.md");
-
   const tabs = [
     { name: "README.md", icon: "📄", language: "markdown" },
     { name: "about.py", icon: "🐍", language: "python" },
     { name: "skills.js", icon: "⚡", language: "javascript" },
-  ];
+  ] as const;
+  type TabName = (typeof tabs)[number]["name"];
+  const [activeTab, setActiveTab] = useState<TabName>("README.md");
 
-  const codeContent = {
+  const codeContent: Record<TabName, string> = {
     "README.md": `# ${personalInfo.name}
 
 ## ${personalInfo.title}
