@@ -30,7 +30,7 @@ export const socialLinks: SocialLink[] = [
 export const skills: Skill[] = [
   // Frontend
   { name: "React", category: "frontend", level: 90 },
-  { name: "TypeScript", category: "frontend", level: 50 },
+  { name: "TypeScript", category: "frontend", level: 70 },
   { name: "Tailwind CSS", category: "frontend", level: 92 },
 
   // Backend
@@ -91,9 +91,9 @@ export const experiences: Experience[] = [
 export const education: Education[] = [
   {
     id: "1",
-    degree: "Bachelor of Science in Computer Science",
-    institution: "University Name",
-    period: "2016 - 2020",
+    degree: "Bachelor Computer Science and Engineering",
+    institution: "Military Institute of Science and Technology (MIST)",
+    period: "2021 - 2025",
     description:
       "Specialized in Artificial Intelligence and Software Engineering",
     achievements: [

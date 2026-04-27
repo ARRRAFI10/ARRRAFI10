@@ -2,7 +2,7 @@
 
 import { projects } from "@/lib/data";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaCode,
   FaCodeBranch,
@@ -14,8 +14,29 @@ import {
 
 export default function ProjectsGitHub() {
   const [activeTab, setActiveTab] = useState<"repositories" | "projects">(
-    "repositories"
+    "repositories",
   );
+  const [projectStats, setProjectStats] = useState<
+    Record<string, { stars: number; branches: number; daysAgo: number }>
+  >({});
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    // Generate random stats for each project after hydration
+    const stats: Record<
+      string,
+      { stars: number; branches: number; daysAgo: number }
+    > = {};
+    projects.forEach((project) => {
+      stats[project.id] = {
+        stars: Math.floor(Math.random() * 50) + 10,
+        branches: Math.floor(Math.random() * 10) + 1,
+        daysAgo: Math.floor(Math.random() * 30) + 1,
+      };
+    });
+    setProjectStats(stats);
+    setIsHydrated(true);
+  }, []);
 
   return (
     <section id="projects" className="py-20 bg-[#0d1117]">
@@ -113,14 +134,20 @@ export default function ProjectsGitHub() {
                     </span>
                     <span className="flex items-center space-x-1">
                       <FaStar className="text-[#8b949e]" />
-                      <span>{Math.floor(Math.random() * 50) + 10}</span>
+                      <span>
+                        {isHydrated ? projectStats[project.id]?.stars : 0}
+                      </span>
                     </span>
                     <span className="flex items-center space-x-1">
                       <FaCodeBranch className="text-[#8b949e]" />
-                      <span>{Math.floor(Math.random() * 10) + 1}</span>
+                      <span>
+                        {isHydrated ? projectStats[project.id]?.branches : 0}
+                      </span>
                     </span>
                     <span>
-                      Updated {Math.floor(Math.random() * 30) + 1} days ago
+                      Updated{" "}
+                      {isHydrated ? projectStats[project.id]?.daysAgo : 0} days
+                      ago
                     </span>
                   </div>
                 </div>
