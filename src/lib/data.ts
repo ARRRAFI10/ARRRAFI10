@@ -69,8 +69,7 @@ export const experiences: Experience[] = [
       "Design and Development and Maintenance of MIST's official website, ensuring optimal performance and user experience",
     achievements: [
       "Developed an Job Portal",
-      "",
-      "Mentored team of 5 junior developers",
+      "Implemented a dynamic news section with real-time updates",
     ],
     technologies: ["React", "Django", "PostgreSQL"],
   },
