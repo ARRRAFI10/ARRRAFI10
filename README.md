@@ -1,6 +1,6 @@
 # Arr Rafi
 
-**AI Engineer — Python Developer — Machine Learning Enthusiast**
+**Software Engineer — Machine Learning Enthusiast**
 
 📍 Mirpur, Dhaka, Bangladesh | 📱 +8801856995246 | 📧 arrrafi2018@gmail.com  
 🔗 [LinkedIn](https://www.linkedin.com/in/arr-rafi-598a18226/) | [GitHub](https://github.com/ARRRAFI10)
