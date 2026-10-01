@@ -3,28 +3,26 @@ import Navigation from "@/components/Navigation";
 import ParticleBackground from "@/components/ParticleBackground";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Full-Stack Developer & AI/ML Enthusiast",
+  title: "Arr Rafi | Full-Stack Software Engineer",
   description:
-    "Professional portfolio showcasing full-stack development, AI/ML projects, and hardware engineering expertise",
+    "Portfolio of Arr Rafi, a full-stack software engineer building production web platforms with Django, React, Next.js, and PostgreSQL.",
   keywords: [
-    "Full-Stack Developer",
-    "AI",
-    "Machine Learning",
+    "Full-Stack Software Engineer",
+    "Django",
+    "Django REST Framework",
     "React",
     "Next.js",
     "Python",
-    "IoT",
+    "PostgreSQL",
+    "WebSockets",
   ],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Arr Rafi" }],
   openGraph: {
-    title: "Portfolio | Full-Stack Developer & AI/ML Enthusiast",
+    title: "Arr Rafi | Full-Stack Software Engineer",
     description:
-      "Professional portfolio showcasing full-stack development and AI/ML expertise",
+      "Production web platforms built with Django, React, Next.js, and PostgreSQL.",
     type: "website",
   },
 };
@@ -36,7 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans`}>
+      <body className="font-sans">
         <ParticleBackground />
         <Navigation />
         <main className="relative z-10">{children}</main>

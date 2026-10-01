@@ -11,6 +11,7 @@ import {
   SiTailwindcss,
   SiTensorflow,
 } from "react-icons/si";
+import type { IconType } from "react-icons";
 import { useInView } from "react-intersection-observer";
 
 const categoryNames = {
@@ -21,7 +22,7 @@ const categoryNames = {
   tools: "Tools & DevOps",
 };
 
-const iconMap: { [key: string]: any } = {
+const iconMap: Record<string, IconType> = {
   React: FaReact,
   "Next.js": SiNextdotjs,
   "Tailwind CSS": SiTailwindcss,

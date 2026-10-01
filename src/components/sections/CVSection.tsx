@@ -2,7 +2,7 @@
 
 import { containerVariants, itemVariants } from "@/lib/animations";
 import { motion } from "framer-motion";
-import { FaDownload, FaFilePdf, FaFileWord, FaPrint } from "react-icons/fa";
+import { FaDownload, FaFilePdf, FaPrint } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 
 export default function CVSection() {
@@ -10,18 +10,11 @@ export default function CVSection() {
 
   const downloadOptions = [
     {
-      name: "PDF Version",
+      name: "PDF CV",
       icon: FaFilePdf,
-      description: "Best for printing and sharing",
+      description: "Updated professional CV",
       file: "/cv.pdf",
       color: "from-red-500 to-red-600",
-    },
-    {
-      name: "Word Document",
-      icon: FaFileWord,
-      description: "Editable format",
-      file: "/cv.docx",
-      color: "from-blue-500 to-blue-600",
     },
   ];
 
@@ -40,7 +33,7 @@ export default function CVSection() {
               <span className="gradient-text">Curriculum Vitae</span>
             </h2>
             <p className="text-dark-400 text-lg max-w-2xl mx-auto">
-              Download my complete CV in your preferred format
+              Download my current professional CV
             </p>
           </motion.div>
 
@@ -52,21 +45,21 @@ export default function CVSection() {
             {/* CV Highlights */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center space-y-2">
-                <div className="text-4xl font-bold gradient-text">5+</div>
-                <p className="text-dark-400">Years Experience</p>
+                <div className="text-4xl font-bold gradient-text">1+</div>
+                <p className="text-dark-400">Years of Professional Experience</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-4xl font-bold gradient-text">20+</div>
-                <p className="text-dark-400">Projects Completed</p>
+                <div className="text-4xl font-bold gradient-text">3</div>
+                <p className="text-dark-400">Production Platforms at MIST</p>
               </div>
               <div className="text-center space-y-2">
-                <div className="text-4xl font-bold gradient-text">15+</div>
-                <p className="text-dark-400">Technologies Mastered</p>
+                <div className="text-4xl font-bold gradient-text">800+</div>
+                <p className="text-dark-400">Problems Solved</p>
               </div>
             </div>
 
             {/* Download Options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="mx-auto max-w-md">
               {downloadOptions.map((option, index) => (
                 <motion.a
                   key={option.name}
@@ -125,7 +118,7 @@ export default function CVSection() {
               { title: "Work Experience", emoji: "💼" },
               { title: "Education & Certifications", emoji: "🎓" },
               { title: "Projects Portfolio", emoji: "🚀" },
-              { title: "References", emoji: "📝" },
+              { title: "Achievements & Certifications", emoji: "📝" },
             ].map((section, index) => (
               <motion.div
                 key={section.title}

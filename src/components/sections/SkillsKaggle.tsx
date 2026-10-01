@@ -9,17 +9,24 @@ import { SiJupyter, SiPython } from "react-icons/si";
 export default function SkillsKaggle() {
   const [isRunning, setIsRunning] = useState(false);
   const [lastRun, setLastRun] = useState("--");
+  const [cellTimes, setCellTimes] = useState<string[]>([]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLastRun(new Date().toLocaleString());
   }, []);
 
-  const categoryNames = {
+  const categoryNames: Record<string, string> = {
     frontend: "Frontend Development",
     backend: "Backend & APIs",
     "ai-ml": "AI & Machine Learning",
     hardware: "Embedded Systems & IoT",
     tools: "DevOps & Tools",
+    programming: "Programming Languages",
+    frameworks: "Working Knowledge",
+    "generative-ai": "Generative AI",
+    database: "Databases",
+    "core-cs": "Core Computer Science",
   };
 
   const groupedSkills = skills.reduce((acc, skill) => {
@@ -31,6 +38,7 @@ export default function SkillsKaggle() {
   }, {} as Record<string, typeof skills>);
 
   const runAnimation = () => {
+    setCellTimes(Object.keys(groupedSkills).map(() => Math.random().toString().slice(2, 5)));
     setIsRunning(true);
     setTimeout(() => setIsRunning(false), 2000);
   };
@@ -131,15 +139,15 @@ export default function SkillsKaggle() {
                   <div>
                     <span className="text-[#6a9955]">
                       # Analyze{" "}
-                      {categoryNames[category as keyof typeof categoryNames]}
+                      {categoryNames[category] ?? category}
                     </span>
                   </div>
                   <div className="text-[#d4d4d4]">
                     skills_data = sk.get_skills(
-                    <span className="text-[#ce9178]">'{category}'</span>)
+                    <span className="text-[#ce9178]">&apos;{category}&apos;</span>)
                   </div>
                   <div className="text-[#d4d4d4]">
-                    sk.visualize_proficiency(skills_data)
+                    sk.list_cv_skills(skills_data)
                   </div>
                 </div>
 
@@ -147,57 +155,20 @@ export default function SkillsKaggle() {
                 <div className="px-4 py-4 bg-[#252525]">
                   <div className="mb-3 flex items-center justify-between">
                     <h3 className="font-semibold text-white">
-                      {categoryNames[category as keyof typeof categoryNames]}
+                      {categoryNames[category] ?? category}
                     </h3>
                     <span className="text-xs text-[#f48771] font-mono">
                       Out [{idx + 2}]:
                     </span>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="flex flex-wrap gap-2">
                     {categorySkills.map((skill) => (
-                      <div key={skill.name} className="space-y-2">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-medium text-gray-300">
-                            {skill.name}
-                          </span>
-                          <span className="text-xs font-mono text-gray-400">
-                            {skill.level}%
-                          </span>
-                        </div>
-                        <div className="relative h-6 bg-[#3c3c3c] rounded overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            transition={{ duration: 1, delay: idx * 0.1 }}
-                            viewport={{ once: true }}
-                            className="absolute inset-y-0 left-0 rounded"
-                            style={{
-                              background: `linear-gradient(90deg, ${
-                                skill.level >= 85
-                                  ? "#10b981"
-                                  : skill.level >= 70
-                                  ? "#3b82f6"
-                                  : "#f59e0b"
-                              } 0%, ${
-                                skill.level >= 85
-                                  ? "#059669"
-                                  : skill.level >= 70
-                                  ? "#2563eb"
-                                  : "#d97706"
-                              } 100%)`,
-                            }}
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-xs font-medium text-white mix-blend-difference">
-                              {skill.level >= 85
-                                ? "Expert"
-                                : skill.level >= 70
-                                ? "Advanced"
-                                : "Intermediate"}
-                            </span>
-                          </div>
-                        </div>
+                      <div
+                        key={skill.name}
+                        className="rounded-full border border-[#4ec9b0]/40 bg-[#1e1e1e] px-3 py-1.5 text-sm font-medium text-gray-200"
+                      >
+                        {skill.name}
                       </div>
                     ))}
                   </div>
@@ -206,7 +177,7 @@ export default function SkillsKaggle() {
                 {isRunning && (
                   <div className="px-4 py-2 bg-[#1e1e1e] text-[#4ec9b0] text-xs font-mono border-t border-[#404040]">
                     ✓ Cell executed successfully (0.
-                    {Math.random().toString().slice(2, 5)}s)
+                    {cellTimes[idx] ?? "000"}s)
                   </div>
                 )}
               </motion.div>
@@ -249,12 +220,9 @@ export default function SkillsKaggle() {
                   </span>
                 </div>
                 <div className="text-blue-700">
-                  Average Proficiency:{" "}
+                  Source:{" "}
                   <span className="font-bold">
-                    {Math.round(
-                      skills.reduce((a, s) => a + s.level, 0) / skills.length
-                    )}
-                    %
+                    Technical skills listed in CV
                   </span>
                 </div>
                 <div className="text-blue-800">

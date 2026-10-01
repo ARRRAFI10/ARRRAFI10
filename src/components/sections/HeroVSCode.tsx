@@ -41,24 +41,25 @@ ${personalInfo.bio}
 ### 🎓 Education
 - **BSc in Computer Science and Engineering**
 - Military Institute of Science and Technology (MIST)
-- CGPA: 3.56/4.00 | Final Year: 3.89/4.00
+- CGPA: 3.56/4.00
 
 ### 💼 Current Role
-- Web Administrator at MIST
-- Django REST Framework + React Development
+- Assistant Programmer (Software Engineer), MIST ICT Directorate
+- Sole developer and system owner for three production platforms
 
 ### 🏆 Achievements
 - 🥉 2nd Runner Up - Anatolian Rover Challenge 2022
 - 🏅 5th Place - Anatolian Rover Challenge 2023
-- 📝 2 Research Papers Accepted (QPAIN 2025)
+- 📝 3 IEEE papers (QPAIN 2025 and 2026)
 
 ### 📊 Problem Solving
 - Codeforces: 330+ problems | Max Rating: 1239
-- CodeChef: 50+ problems | Max Rating: 1455
+- CodeChef: Max Rating 1455
+- LeetCode: 440+ problems solved
 
 ---
 
-**Let's build something amazing together!** 🚀`,
+**Available for full-stack software engineering opportunities.**`,
 
     "about.py": `#!/usr/bin/env python3
 """
@@ -75,30 +76,23 @@ class Developer:
             "degree": "BSc in CSE",
             "institution": "MIST",
             "cgpa": 3.56,
-            "final_year_cgpa": 3.89
         }
         
     def get_skills(self):
         return {
-            "languages": ["Python", "JavaScript", "Java", "C++", "PHP"],
-            "frameworks": ["React", "Django", "Django REST Framework"],
-            "databases": ["MySQL", "PostgreSQL"],
-            "tools": ["Git", "Arduino", "ESP32", "Machine Learning"]
+            "languages": ["Python", "TypeScript", "JavaScript", "SQL", "C++", "Java"],
+            "backend": ["Django", "Django REST Framework", "Django Channels", "Celery"],
+            "frontend": ["React", "Next.js", "Vite", "Tailwind CSS"],
+            "databases": ["PostgreSQL", "Redis", "MySQL"]
         }
     
     def get_experience(self):
         return [
             {
-                "role": "Web Administrator",
-                "company": "MIST",
+                "role": "Assistant Programmer (Software Engineer)",
+                "company": "MIST ICT Directorate",
                 "period": "May 2025 - Present",
-                "tech": ["React", "Django", "REST API"]
-            },
-            {
-                "role": "Electrical Team Member",
-                "company": "MIST Mars Rover Society",
-                "period": "Jan 2022 - Jul 2023",
-                "tech": ["Arduino", "C++", "Robotics"]
+                "tech": ["React", "Next.js", "Django", "PostgreSQL", "REST APIs"]
             }
         ]
     
@@ -107,49 +101,41 @@ class Developer:
             "email": "${personalInfo.email}",
             "phone": "${personalInfo.phone}",
             "github": "ARRRAFI10",
-            "codeforces": "ARR100"
+            "competitive_programming": "800+ problems solved"
         }
 
 if __name__ == "__main__":
     me = Developer()
     print(f"Hello! I'm {me.name}")
-    print(f"Specialized in: {', '.join(me.get_skills()['frameworks'])}")`,
+    print(f"Specialized in: {', '.join(me.get_skills()['backend'])}")`,
 
     "skills.js": `// ${personalInfo.name} - Technical Skills
 // Last Updated: ${new Date().toLocaleDateString()}
 
 const skills = {
   frontend: {
-    frameworks: ['React', 'Next.js'],
-    styling: ['Tailwind CSS', 'CSS3', 'HTML5'],
+    frameworks: ['React', 'Next.js', 'Vite'],
+    styling: ['Tailwind CSS', 'Progressive Web Apps', 'Responsive UI'],
     level: 'Advanced'
   },
   
   backend: {
-    languages: ['Python', 'Java', 'PHP'],
-    frameworks: ['Django', 'Django REST Framework'],
-    databases: ['MySQL', 'PostgreSQL'],
+    languages: ['Python', 'TypeScript', 'JavaScript', 'SQL'],
+    frameworks: ['Django', 'Django REST Framework', 'Django Channels', 'Celery'],
+    databases: ['PostgreSQL', 'Redis', 'MySQL'],
     level: 'Advanced'
   },
   
   aiML: {
-    libraries: ['TensorFlow', 'PyTorch', 'Scikit-learn'],
-    domains: ['Computer Vision', 'Image Processing', 'Deep Learning'],
-    projects: ['OrniFire', 'Hybrid Residual U-Net'],
-    level: 'Intermediate'
-  },
-  
-  embedded: {
-    platforms: ['Arduino', 'ESP32'],
-    skills: ['Embedded C/C++', 'Sensor Integration', 'IoT'],
-    experience: 'Mars Rover Development',
-    level: 'Intermediate'
+    libraries: ['TensorFlow', 'PyTorch', 'scikit-learn'],
+    level: 'Working knowledge'
   },
   
   problemSolving: {
     platforms: {
-      codeforces: { solved: 330, maxRating: 1239 },
-      codechef: { solved: 50, maxRating: 1455 }
+      codeforces: { solved: '330+', maxRating: 1239 },
+      codechef: { maxRating: 1455 },
+      leetcode: { solved: '440+' }
     },
     focus: ['Algorithms', 'Data Structures', 'Competitive Programming']
   }
@@ -159,8 +145,7 @@ export default skills;
 
 // Available for collaboration on:
 // - Full-stack web applications
-// - Machine learning projects
-// - Robotics and IoT systems
+// - Secure authentication and payment workflows
 // - Open source contributions`,
   };
 
@@ -283,7 +268,7 @@ export default skills;
                   <span>GitHub</span>
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com/in/arr-rafi"
+                  href="https://www.linkedin.com/in/arrrafi10/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 5 }}
@@ -291,16 +276,6 @@ export default skills;
                 >
                   <FaLinkedin />
                   <span>LinkedIn</span>
-                </motion.a>
-                <motion.a
-                  href="https://codeforces.com/profile/ARR100"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ x: 5 }}
-                  className="flex items-center space-x-2 px-3 py-2 bg-[#1e1e1e] rounded text-sm text-gray-300 hover:bg-[#37373d] transition-colors"
-                >
-                  <FaCode />
-                  <span>Codeforces</span>
                 </motion.a>
                 <motion.a
                   href={`mailto:${personalInfo.email}`}

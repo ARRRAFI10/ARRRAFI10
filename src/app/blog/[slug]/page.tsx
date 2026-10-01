@@ -3,10 +3,9 @@
 import { fadeInUp } from "@/lib/animations";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { FaArrowLeft, FaCalendar, FaClock, FaShare } from "react-icons/fa";
+import { notFound, useParams } from "next/navigation";
+import { FaArrowLeft, FaCalendar, FaClock } from "react-icons/fa";
 
-// Mock blog post content - Replace with actual data fetching
 const blogPost = {
   slug: "building-ai-powered-applications",
   title: "Building AI-Powered Applications with Next.js and TensorFlow",
@@ -70,7 +69,11 @@ Happy coding! 🚀
 };
 
 export default function BlogPostPage() {
-  const params = useParams();
+  const params = useParams<{ slug: string }>();
+
+  if (params.slug !== blogPost.slug) {
+    notFound();
+  }
 
   return (
     <div className="min-h-screen pt-32 pb-20">
@@ -129,14 +132,6 @@ export default function BlogPostPage() {
                 </span>
               </div>
 
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center space-x-2 text-primary-400 hover:text-primary-300"
-              >
-                <FaShare />
-                <span>Share</span>
-              </motion.button>
             </div>
           </div>
 
@@ -170,7 +165,7 @@ export default function BlogPostPage() {
               👨‍💻
             </div>
             <div className="flex-1">
-              <h3 className="text-xl font-bold mb-2">Written by Your Name</h3>
+              <h3 className="text-xl font-bold mb-2">Written by Arr Rafi</h3>
               <p className="text-dark-400">
                 Full-Stack Developer & AI/ML Enthusiast passionate about
                 building the future where technology meets nature.
@@ -178,34 +173,6 @@ export default function BlogPostPage() {
             </div>
           </motion.div>
 
-          {/* Related Posts */}
-          <motion.div
-            variants={fadeInUp}
-            transition={{ delay: 0.6 }}
-            className="mt-12 space-y-6"
-          >
-            <h3 className="text-2xl font-bold">Related Articles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[1, 2].map((i) => (
-                <Link key={i} href="/blog/related-post">
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="glass-morphism p-6 rounded-xl space-y-3"
-                  >
-                    <h4 className="font-bold text-lg hover:text-primary-400 transition-colors">
-                      Related Article Title {i}
-                    </h4>
-                    <p className="text-dark-400 text-sm line-clamp-2">
-                      Brief description of the related article content...
-                    </p>
-                    <span className="text-primary-400 text-sm font-semibold">
-                      Read More →
-                    </span>
-                  </motion.div>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </div>

@@ -6,8 +6,9 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "lint": "eslint src",
+    "type-check": "tsc --noEmit",
+    "test": "npm run lint && npm run type-check"
   },
   "dependencies": {
     "date-fns": "^3.3.1",

@@ -12,6 +12,20 @@ import {
   FaTimes,
 } from "react-icons/fa";
 import { personalInfo } from "@/lib/data";
+import { features } from "@/lib/features";
+import {
+  navigateToPortfolioSection,
+  type PortfolioSection,
+} from "@/lib/portfolio-navigation";
+import type { IconType } from "react-icons";
+
+interface NavigationItem {
+  name: string;
+  href: string;
+  icon: IconType;
+  section?: PortfolioSection;
+}
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -25,11 +39,13 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { name: "Projects", href: "#projects", icon: FaCode },
-    { name: "Blog", href: "/blog", icon: FaBlog },
-    { name: "CV", href: "#cv", icon: FaFileAlt },
-    { name: "Contact", href: "#contact", icon: FaEnvelope },
+  const navItems: NavigationItem[] = [
+    { name: "Projects", href: "/#projects", icon: FaCode, section: "projects" },
+    ...(features.blog
+      ? [{ name: "Blog", href: "/blog", icon: FaBlog }]
+      : []),
+    { name: "CV", href: "/#cv", icon: FaFileAlt, section: "cv" },
+    { name: "Contact", href: "/#contact", icon: FaEnvelope, section: "contact" },
   ];
 
   return (
@@ -62,7 +78,16 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.href}>
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={(event) => {
+                  if (item.section) {
+                    event.preventDefault();
+                    navigateToPortfolioSection(item.section);
+                  }
+                }}
+              >
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -74,12 +99,16 @@ export default function Navigation() {
               </Link>
             ))}
             <motion.a
-              href="#contact"
+              href="/#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                navigateToPortfolioSection("contact");
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="ml-4 btn-primary"
             >
-              Let's Talk
+              Let&apos;s Talk
             </motion.a>
           </div>
 
@@ -113,7 +142,13 @@ export default function Navigation() {
                 >
                   <Link
                     href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(event) => {
+                      setIsMobileMenuOpen(false);
+                      if (item.section) {
+                        event.preventDefault();
+                        navigateToPortfolioSection(item.section);
+                      }
+                    }}
                     className="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors"
                   >
                     <item.icon className="text-primary-400" />
@@ -122,14 +157,18 @@ export default function Navigation() {
                 </motion.div>
               ))}
               <motion.a
-                href="#contact"
+                href="/#contact"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  navigateToPortfolioSection("contact");
+                }}
                 className="block btn-primary text-center mt-4"
               >
-                Let's Talk
+                Let&apos;s Talk
               </motion.a>
             </div>
           </motion.div>

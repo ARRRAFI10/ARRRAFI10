@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRight, FaCalendar, FaClock, FaSearch } from "react-icons/fa";
 
-// Mock blog posts - Replace with actual data fetching
 const blogPosts = [
   {
     slug: "building-ai-powered-applications",
@@ -18,39 +17,6 @@ const blogPosts = [
     tags: ["AI/ML", "Next.js", "TensorFlow"],
     image: "/blog/ai-apps.jpg",
     featured: true,
-  },
-  {
-    slug: "iot-and-nature",
-    title: "IoT for Environmental Conservation: A Developer's Perspective",
-    description:
-      "How hardware projects can contribute to environmental monitoring and conservation",
-    date: "2024-01-10",
-    readTime: "6 min read",
-    tags: ["IoT", "Hardware", "Environment"],
-    image: "/blog/iot-nature.jpg",
-    featured: false,
-  },
-  {
-    slug: "full-stack-best-practices",
-    title: "Full-Stack Development Best Practices in 2024",
-    description:
-      "Modern patterns and practices for building scalable web applications",
-    date: "2024-01-05",
-    readTime: "10 min read",
-    tags: ["Full-Stack", "Best Practices", "Architecture"],
-    image: "/blog/best-practices.jpg",
-    featured: true,
-  },
-  {
-    slug: "sustainable-tech",
-    title: "Building Sustainable Technology: Green Coding Practices",
-    description:
-      "How developers can reduce carbon footprint through efficient coding",
-    date: "2023-12-28",
-    readTime: "7 min read",
-    tags: ["Sustainability", "Best Practices"],
-    image: "/blog/sustainable.jpg",
-    featured: false,
   },
 ];
 

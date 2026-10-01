@@ -26,7 +26,7 @@ CGPA: 3.56/4.00 | Final Year: 3.89/4.00
 - **Programming**: Python, C++, JavaScript, Java, PHP
 - **AI/ML**: Machine Learning, Deep Learning, CNN, Transfer Learning, Model Evaluation, Data Preprocessing
 - **Frameworks**: TensorFlow, Keras, PyTorch, Scikit-learn
-- **Generative AI**: Prompt Engineering, OpenAI API, Hugging Face, LangChain (Basic), RAG Concepts
+- **Generative AI**: Prompt Engineering, OpenAI API, LangChain (Basic), RAG Concepts
 - **Backend**: Django, Django REST Framework, REST APIs
 - **Frontend**: React.js
 - **Database**: PostgreSQL, MySQL, Firebase

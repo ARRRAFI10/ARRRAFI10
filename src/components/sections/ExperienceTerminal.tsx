@@ -34,29 +34,29 @@ ${experiences
   )
   .join("\n")}`,
 
-    whoami: `Arr Rafi - Full-Stack Developer & AI/ML Enthusiast
+    whoami: `Arr Rafi - Full-Stack Software Engineer
 Location: Mirpur, Dhaka
 Education: BSc in CSE, MIST (CGPA: 3.56/4.00)
-Current: Web Administrator at MIST
-Interests: Robotics, Machine Learning, Web Development`,
+Current: Assistant Programmer (Software Engineer), MIST ICT Directorate
+Focus: Python/Django, PostgreSQL, React, Next.js, secure authentication, and payments`,
 
     achievements: `🏆 Achievements:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🥉 2nd Runner Up - Anatolian Rover Challenge 2022
 🏅 5th Place - Anatolian Rover Challenge 2023
-📝 2 Research Papers Accepted (QPAIN 2025)
-💻 330+ Problems Solved on Codeforces (Max: 1239)
-🎯 50+ Problems Solved on CodeChef (Max: 1455)`,
+📝 3 IEEE papers (QPAIN 2025 and 2026)
+💻 800+ competitive-programming problems solved
+🎯 Codeforces: 330+ solved (Max: 1239) | CodeChef: Max 1455 | LeetCode: 440+ solved`,
 
     skills: `Technical Skills:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Frontend:  React, Next.js, HTML, CSS, JavaScript
-Backend:   Django, Django REST Framework, PHP, Node.js
-Languages: Python, Java, C++, JavaScript, PHP
-Databases: MySQL, PostgreSQL
-ML/AI:     TensorFlow, PyTorch, Computer Vision
-Embedded:  Arduino, ESP32, IoT
-Tools:     Git, Linux, Docker`,
+Frontend:  React, Next.js, Vite, TypeScript, Tailwind CSS
+Backend:   Django, Django REST Framework, Django Channels, Celery, WebSockets
+Languages: Python, TypeScript, JavaScript, SQL, C++, Java
+Databases: PostgreSQL, Redis, MySQL
+Infrastructure: Linux/Ubuntu, Nginx, Gunicorn, systemd, PgBouncer, Docker
+Tools:     Git, GitHub Actions, pytest, Playwright, load testing
+Working knowledge: FastAPI, Node.js, TensorFlow, PyTorch, scikit-learn`,
   };
 
   const handleCommand = (cmd: string) => {
@@ -191,8 +191,8 @@ ${exp.achievements.map((a) => `║  • ${a}`).join("\n")}
         <div className="mt-6 p-4 bg-[#252526] border border-[#3c3c3c] rounded-lg">
           <p className="text-gray-400 text-sm font-mono">
             💡 <span className="text-green-400">Tip:</span> Use commands like{" "}
-            <code className="text-[#ce9178]">"cat 1"</code> or{" "}
-            <code className="text-[#ce9178]">"cat 2"</code> to view detailed
+            <code className="text-[#ce9178]">&quot;cat 1&quot;</code> or{" "}
+            <code className="text-[#ce9178]">&quot;cat 2&quot;</code> to view detailed
             experience information
           </p>
         </div>
